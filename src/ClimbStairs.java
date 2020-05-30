@@ -4,12 +4,10 @@
 public class ClimbStairs {
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        ClimbStairs solution = new ClimbStairs();
         System.out.println(solution.climbStairs(3));
     }
-}
 
-class Solution {
     public int climbStairs(int n) {
         int[] array = new int[n + 1];
         array[0] = 1;
