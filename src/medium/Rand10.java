@@ -1,7 +1,9 @@
+package medium;
+
 import java.util.Random;
 
 /**
- * 470. 用 Rand7() 实现 Rand10()
+ * 470. 用 Rand7() 实现 medium.Rand10()
  */
 public class Rand10 {
     public static void main(String[] args) {

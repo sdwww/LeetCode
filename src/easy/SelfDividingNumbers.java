@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package easy;
+
 import java.util.LinkedList;
 import java.util.List;
 

@@ -1,3 +1,5 @@
+package medium;
+
 /**
  * 289. 生命游戏
  */

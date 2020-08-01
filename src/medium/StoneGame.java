@@ -1,3 +1,5 @@
+package medium;
+
 /**
  * 877. 石子游戏
  */

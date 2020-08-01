@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+package easy;
 
 /**
  * 867. 转置矩阵

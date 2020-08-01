@@ -1,3 +1,7 @@
+package easy;
+
+import base.TreeNode;
+
 /**
  * 111. 二叉树的最小深度
  */
@@ -37,16 +41,5 @@ public class TreeMinDepth {
         int leftLength = search(node.left, depth + 1);
         int rightLength = search(node.right, depth + 1);
         return leftLength > rightLength ? rightLength : leftLength;
-    }
-}
-
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
     }
 }
