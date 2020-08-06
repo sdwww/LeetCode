@@ -1,5 +1,7 @@
 package easy;
 
+import base.ListNode;
+
 /**
  * 206. 反转链表
  */
