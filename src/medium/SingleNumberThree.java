@@ -19,19 +19,19 @@ public class SingleNumberThree {
     }
 
     public int[] singleNumber(int[] nums) {
-        Map<Integer,Integer> hashMap =new HashMap<>();
+        Map<Integer, Integer> hashMap = new HashMap<>();
         int[] keys = new int[2];
         for (int num : nums) {
             Integer value = hashMap.get(num);
-            if(value==null){
-                hashMap.put(num,1);
+            if (value == null) {
+                hashMap.put(num, 1);
             } else {
                 hashMap.remove(num);
             }
         }
-        int count=0;
-        for(Integer key:hashMap.keySet()){
-            keys[count]=key;
+        int count = 0;
+        for (Integer key : hashMap.keySet()) {
+            keys[count] = key;
             count++;
         }
         return keys;
