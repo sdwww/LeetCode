@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/9 15:04
  * Description:47. 全排列 II
  */

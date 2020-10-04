@@ -1,9 +1,6 @@
 package medium;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/9 18:03
  * Description:1006. 笨阶乘
  */

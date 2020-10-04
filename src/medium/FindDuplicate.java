@@ -1,9 +1,6 @@
 package medium;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/15 16:09
  * Description:287. 寻找重复数
  */

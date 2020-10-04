@@ -3,9 +3,6 @@ package medium;
 import java.util.Arrays;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/15 15:50
  * Description:781. 森林中的兔子
  */

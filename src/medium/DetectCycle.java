@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/15 13:15
  * Description:142. 环形链表 II
  */

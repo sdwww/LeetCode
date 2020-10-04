@@ -3,9 +3,6 @@ package medium;
 import base.TreeNode;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/9 17:30
  * Description:222. 完全二叉树的节点个数
  */

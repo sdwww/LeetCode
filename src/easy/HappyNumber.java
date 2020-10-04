@@ -1,9 +1,6 @@
 package easy;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/9 9:30
  * Description:202. 快乐数
  */

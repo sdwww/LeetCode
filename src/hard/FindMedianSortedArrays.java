@@ -1,9 +1,6 @@
 package hard;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/9 10:34
  * Description:4. 寻找两个正序数组的中位数
  */

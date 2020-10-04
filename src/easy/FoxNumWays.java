@@ -1,9 +1,6 @@
 package easy;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/10/2 18:43
  * Description:剑指 Offer 10- II. 青蛙跳台阶问题
  */

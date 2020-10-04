@@ -1,9 +1,6 @@
 package easy;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/10/2 20:40
  * Description:剑指 Offer 17. 打印从1到最大的n位数
  */

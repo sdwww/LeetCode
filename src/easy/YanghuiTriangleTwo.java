@@ -4,9 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/8/9 14:07
  * Description:119. 杨辉三角 II
  */

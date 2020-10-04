@@ -5,9 +5,6 @@ import base.TreeNode;
 import java.util.Objects;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/10/2 18:54
  * Description:剑指 Offer 28. 对称的二叉树
  */

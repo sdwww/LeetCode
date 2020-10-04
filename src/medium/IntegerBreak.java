@@ -1,9 +1,6 @@
 package medium;
 
 /**
- * Copyright (C), 2018-2020 JD.COM All Right Reserved
- *
- * @author wangweiwei56
  * @date 2020/10/2 20:56
  * Description:343. 整数拆分
  */
