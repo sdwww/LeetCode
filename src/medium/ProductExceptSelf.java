@@ -10,9 +10,8 @@ public class ProductExceptSelf {
 
     public static void main(String[] args) {
         ProductExceptSelf solution = new ProductExceptSelf();
-        int[] arr = {1, 2, 3, 4};
-        int[] result = solution.productExceptSelf(arr);
-        Arrays.stream(result).forEach(System.out::println);
+        int[] arr = {1, 2, 3};
+        Arrays.stream(solution.productExceptSelf(arr)).forEach(System.out::print);
     }
 
     public int[] productExceptSelf(int[] nums) {
@@ -28,5 +27,4 @@ public class ProductExceptSelf {
         }
         return result;
     }
-
 }
