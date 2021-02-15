@@ -7,11 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Copyright (C), 2018-2021 JD.COM All Right Reserved
- *
- * @author wangweiwei56
- * @date 2021/2/15 14:27
- * Description:234. 回文链表
+ * 234. 回文链表
  */
 public class IsPalindrome {
 
