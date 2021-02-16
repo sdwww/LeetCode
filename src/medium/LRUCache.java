@@ -14,10 +14,10 @@ class LRUCache1 {
         DLinkedNode prev;
         DLinkedNode next;
 
-        public DLinkedNode() {
+        private DLinkedNode() {
         }
 
-        public DLinkedNode(int key, int value) {
+        private DLinkedNode(int key, int value) {
             this.key = key;
             this.value = value;
         }
