@@ -21,7 +21,7 @@ public class DetectCycle {
         node2.next = node3;
         node3.next = node4;
         node4.next = node2;
-        System.out.println(solution.detectCycle(node1));
+        System.out.println(solution.detectCycle(node1).val);
     }
 
     public ListNode detectCycle1(ListNode head) {
@@ -40,11 +40,11 @@ public class DetectCycle {
     }
 
     public ListNode detectCycle(ListNode head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return null;
         }
-        ListNode fast = head.next;
-        ListNode slow = head;
+        ListNode fast = head.next.next;
+        ListNode slow = head.next;
         while (fast != null && fast != slow && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
@@ -53,7 +53,7 @@ public class DetectCycle {
             return null;
         }
         ListNode node1 = head;
-        ListNode node2 = fast.next;
+        ListNode node2 = fast;
         while (node1 != null && node2 != null && node1 != node2) {
             node1 = node1.next;
             node2 = node2.next;
