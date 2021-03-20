@@ -19,6 +19,12 @@ public class TotalNQueensTwo {
         return count;
     }
 
+    /**
+     *
+     * @param rowNum 当前行数
+     * @param n 总个数
+     * @param arr 维护的数组
+     */
     private void check(int rowNum, int n, int[] arr) {
         if (rowNum >= n) {
             count++;
@@ -31,6 +37,13 @@ public class TotalNQueensTwo {
         }
     }
 
+    /**
+     *
+     * @param rowNum 当前行数
+     * @param value 当前值
+     * @param arr 维护的数组
+     * @return 是否可行
+     */
     private boolean judge(int rowNum, int value, int[] arr) {
         for (int i = 0; i < rowNum; i++) {
             if (arr[i] == value || Math.abs(arr[i] - value) == Math.abs(i - rowNum)) {
