@@ -32,7 +32,7 @@ public class IsSymmetricBinaryTree {
         return compare(root.left, root.right);
     }
 
-    boolean compare(TreeNode left, TreeNode right) {
+    private boolean compare(TreeNode left, TreeNode right) {
         if (left == null && right == null) {
             return true;
         }

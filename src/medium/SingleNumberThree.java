@@ -12,8 +12,8 @@ public class SingleNumberThree {
         SingleNumberThree solution = new SingleNumberThree();
         int[] arr = {1, 2, 1, 3, 2, 5};
         int[] newArray = solution.singleNumber(arr);
-        for (int i = 0; i < newArray.length; i++) {
-            System.out.println(newArray[i]);
+        for (int j : newArray) {
+            System.out.println(j);
         }
 
     }

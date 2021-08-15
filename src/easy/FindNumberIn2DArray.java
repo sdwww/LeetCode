@@ -18,7 +18,7 @@ public class FindNumberIn2DArray {
         }
         int i = matrix.length - 1;
         int j = 0;
-        while (i >= 0 && j < matrix[0].length)
+        while (i >= 0 && j < matrix[0].length) {
             if (matrix[i][j] == target) {
                 return true;
             } else if (matrix[i][j] < target) {
@@ -26,6 +26,7 @@ public class FindNumberIn2DArray {
             } else {
                 i--;
             }
+        }
         return false;
     }
 }
