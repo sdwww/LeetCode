@@ -1,8 +1,10 @@
 package easy;
 
 /**
+ * 70. 爬楼梯
+ * 剑指 Offer 10- II. 青蛙跳台阶问题
+ *
  * @date 2020/10/2 18:43
- * Description:剑指 Offer 10- II. 青蛙跳台阶问题
  */
 public class FoxNumWays {
     public static void main(String[] args) {

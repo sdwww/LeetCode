@@ -5,8 +5,10 @@ import base.TreeNode;
 import java.util.Objects;
 
 /**
+ * 101. 对称二叉树
+ * 剑指 Offer 28. 对称的二叉树
+ *
  * @date 2020/10/2 18:54
- * Description:剑指 Offer 28. 对称的二叉树
  */
 public class IsSymmetricBinaryTree {
 
@@ -45,9 +47,9 @@ public class IsSymmetricBinaryTree {
         if (!Objects.equals(left.val, right.val)) {
             return false;
         }
-        if(!compare(left.left, right.right)){
+        if (!compare(left.left, right.right)) {
             return false;
         }
-        return compare(left.right,right.left);
+        return compare(left.right, right.left);
     }
 }
