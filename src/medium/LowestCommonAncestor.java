@@ -32,11 +32,8 @@ public class LowestCommonAncestor {
             return root;
         }
         if (left != null) {
-            return root.left;
+            return left;
         }
-        if (right != null) {
-            return root.right;
-        }
-        return null;
+        return right;
     }
 }
