@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 /**
  * 946. 验证栈序列
+ * 剑指 Offer 31. 栈的压入、弹出序列
  */
 public class ValidateStackSequences {
 
@@ -21,12 +22,12 @@ public class ValidateStackSequences {
         LinkedList<Integer> stack = new LinkedList<>();
         while (pushedIndex < pushed.length) {
             stack.push(pushed[pushedIndex++]);
-            while (!stack.isEmpty() && stack.getFirst().equals(popped[poppedIndex])) {
+            while (!stack.isEmpty() && stack.peek().equals(popped[poppedIndex])) {
                 stack.pop();
                 poppedIndex++;
             }
         }
-        while (!stack.isEmpty() && stack.getFirst().equals(popped[poppedIndex])) {
+        while (!stack.isEmpty() && stack.peek().equals(popped[poppedIndex])) {
             stack.pop();
             poppedIndex++;
         }
