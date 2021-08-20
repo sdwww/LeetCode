@@ -1,6 +1,5 @@
 package easy;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /**
@@ -20,7 +19,7 @@ public class MinStack {
 
     public void push(int x) {
         stack.push(x);
-        minStack.push(Math.min(minStack.peek(),x));
+        minStack.push(Math.min(minStack.peek(), x));
     }
 
     public void pop() {

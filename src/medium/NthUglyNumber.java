@@ -2,6 +2,7 @@ package medium;
 
 /**
  * 264. 丑数 II
+ * 剑指 Offer 49. 丑数
  */
 public class NthUglyNumber {
 
