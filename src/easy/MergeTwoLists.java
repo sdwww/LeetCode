@@ -37,6 +37,7 @@ public class MergeTwoLists {
             }
             current = current.next;
         }
+        // 只剩下一个链表的情况
         if (l1 != null) {
             current.next = l1;
         }

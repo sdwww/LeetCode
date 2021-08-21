@@ -28,14 +28,16 @@ public class LinkedListReverseList {
         ListNode firstNode = head.next.next;
         ListNode nextNode = head.next;
         ListNode lastNode = head;
-        lastNode.next =null;
+        // 头结点的next值为空
+        lastNode.next = null;
         while (firstNode != null) {
             nextNode.next = lastNode;
             lastNode = nextNode;
             nextNode = firstNode;
             firstNode = firstNode.next;
         }
-        nextNode.next =lastNode;
+        // 最后将末尾结点的指针旋转
+        nextNode.next = lastNode;
         return nextNode;
     }
 }

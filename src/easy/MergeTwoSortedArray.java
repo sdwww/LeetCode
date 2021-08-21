@@ -18,8 +18,11 @@ public class MergeTwoSortedArray {
      * 时间复杂度O(m+n),空间复杂度O（1）
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // 数组1的索引值
         int p1 = m - 1;
+        // 数组2的索引值
         int p2 = n - 1;
+        // 合并之后的索引值
         int p3 = m + n - 1;
         while (p2 >= 0) {
             // 考虑num1为空的情况
