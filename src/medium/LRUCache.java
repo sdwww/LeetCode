@@ -25,8 +25,9 @@ class LRUCache1 {
 
     private Map<Integer, DLinkedNode> cache = new HashMap<>();
     private int size;
-    private int capacity;
-    private DLinkedNode head, tail;
+    private final int capacity;
+    private final DLinkedNode head;
+    private final DLinkedNode tail;
 
     public LRUCache1(int capacity) {
         this.size = 0;

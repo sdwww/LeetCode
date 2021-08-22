@@ -28,6 +28,7 @@ public class ReverseBetweenList {
         if (head == null || head.next == null || left == right) {
             return head;
         }
+        // 将链表分成三段，中间段反转，标记四个节点
         ListNode listNode = head;
         ListNode node1 = null;
         ListNode node2 = null;
