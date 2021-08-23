@@ -3,12 +3,11 @@ package medium;
 import base.ListNode;
 
 /**
- * todo
  * 82. 删除排序链表中的重复元素 II
  *
  * @author www
  */
-public class DeleteDuplicates {
+public class DeleteDuplicatesTwo {
 
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
@@ -18,7 +17,7 @@ public class DeleteDuplicates {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        DeleteDuplicates solution = new DeleteDuplicates();
+        DeleteDuplicatesTwo solution = new DeleteDuplicatesTwo();
         ListNode listNode = solution.deleteDuplicates(node1);
         System.out.println(listNode);
     }
