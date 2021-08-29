@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 78-子集
+ * 78.子集
  */
 public class Subsets {
     public static void main(String[] args) {

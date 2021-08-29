@@ -18,12 +18,15 @@ public class MaxSlidingWindow {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
         int[] result = new int[nums.length - k + 1];
+        // 单调队列，头部最大
         Deque<Integer> deque = new LinkedList<>();
         for (int i = 0; i < nums.length; i++) {
+            // 元素和列队尾部比较，如果大于尾部，则移除尾部节点
             while (!deque.isEmpty() && nums[deque.getLast()] < nums[i]) {
                 deque.pollLast();
             }
             deque.addLast(i);
+            // 头部的索引如果超出范围，则移除
             if (deque.getFirst() < i - k + 1) {
                 deque.pollFirst();
             }
