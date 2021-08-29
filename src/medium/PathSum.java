@@ -1,12 +1,17 @@
+/**
+ * @(#)PathSum.java, 8月 29, 2021.
+ * <p>
+ * Copyright 2021 fenbi.com. All rights reserved.
+ * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
 package medium;
 
 import base.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * 113. 路径总和 II
+ * 112. 路径总和
+ *
+ * @author www
  */
 public class PathSum {
 
@@ -21,31 +26,21 @@ public class PathSum {
         root.right = node2;
         node2.left = node3;
         node2.right = node4;
-        solution.pathSum(root, 28).forEach(System.out::println);
+        boolean b = solution.hasPathSum(root, 29);
+        System.out.println(b);
     }
 
-    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        List<List<Integer>> lists = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
+    public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {
-            return lists;
+            return false;
         }
-        search(root, lists, list, targetSum);
-        return lists;
-    }
-
-    private void search(TreeNode treeNode, List<List<Integer>> lists, List<Integer> list, int target) {
-        List<Integer> listTemp = new ArrayList<>(list);
-        listTemp.add(treeNode.val);
-        if (treeNode.right == null && treeNode.left == null && target == treeNode.val) {
-            lists.add(listTemp);
-            return;
+        if (root.right == null && root.left == null && targetSum == root.val) {
+            return true;
         }
-        if (treeNode.left != null) {
-            search(treeNode.left, lists, listTemp, target - treeNode.val);
+        boolean leftResult = hasPathSum(root.left, targetSum - root.val);
+        if (leftResult) {
+            return true;
         }
-        if (treeNode.right != null) {
-            search(treeNode.right, lists, listTemp, target - treeNode.val);
-        }
+        return hasPathSum(root.right, targetSum - root.val);
     }
 }

@@ -23,20 +23,20 @@ public class DeleteDuplicatesTwo {
     }
 
     public ListNode deleteDuplicates(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode node1 = head;
-        ListNode node2 = head.next;
-        while (node1 != null && node2 != null) {
-            if (node1.val == node2.val) {
-                node1.next = node2.next;
-                node2 = node1.next;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        // 设置虚拟节点
+        ListNode current = dummy;
+        while (current.next != null && current.next.next != null) {
+            if (current.next.val == current.next.next.val) {
+                int x = current.next.val;
+                while (current.next != null && current.next.val == x) {
+                    current.next = current.next.next;
+                }
             } else {
-                node1 = node1.next;
-                node2 = node2.next;
+                current = current.next;
             }
         }
-        return head;
+        return dummy.next;
     }
 }
