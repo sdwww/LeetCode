@@ -6,6 +6,8 @@
  */
 package medium;
 
+import java.util.Arrays;
+
 /**
  * 322. 零钱兑换
  *
@@ -20,23 +22,19 @@ public class CoinChange {
         System.out.println(i);
     }
 
-    // todo
     public int coinChange(int[] coins, int amount) {
-        int[][] dp = new int[coins.length][amount+1];
-        for (int i = 1; i < dp[0].length; i++) {
-            if (i % coins[0] == 0) {
-                dp[0][i] = 1;
-            }
-        }
-        for (int i = 1; i < coins.length; i++) {
-            for (int j = 0; j <= amount; j++) {
-                if (j - coins[i] >= 0) {
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - coins[i]];
-                } else {
-                    dp[i][j] = dp[i - 1][j];
+        int[] dp = new int[amount + 1];
+        // 每个元素设置为整数最大值
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (i - coin >= 0) {
+                    // 核心逻辑
+                    dp[i] = Math.min(dp[i - coin] + 1, dp[i]);
                 }
             }
         }
-        return dp[coins.length - 1][amount];
+        return dp[amount] == (amount + 1) ? -1 : dp[amount];
     }
 }
