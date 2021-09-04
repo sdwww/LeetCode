@@ -16,10 +16,12 @@ public class IsCompleteTree {
         TreeNode node2 = new TreeNode(20);
         TreeNode node3 = new TreeNode(15);
         TreeNode node4 = new TreeNode(7);
+        TreeNode node5 = new TreeNode(66);
         root.left = node1;
         root.right = node2;
-        node2.left = node3;
-        node2.right = node4;
+        node1.left = node3;
+        node1.right = node4;
+        node2.right =node5;
 
         IsCompleteTree isCompleteTree = new IsCompleteTree();
         boolean completeTree = isCompleteTree.isCompleteTree(root);
@@ -33,14 +35,19 @@ public class IsCompleteTree {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                if (node.left != null) {
-
+                // 碰到第一个null元素，队列中剩下的所有元素必须都是null
+                if (node == null) {
+                    for (TreeNode treeNode : queue) {
+                        if (treeNode != null) {
+                            return false;
+                        }
+                    }
+                    return true;
                 }
-                if (node.right != null) {
-
-                }
+                queue.add(node.left);
+                queue.add(node.right);
             }
         }
-        return false;
+        return true;
     }
 }
