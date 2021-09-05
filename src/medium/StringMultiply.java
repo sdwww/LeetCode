@@ -1,5 +1,7 @@
 package medium;
 
+import java.math.BigDecimal;
+
 /**
  * 43. 字符串相乘
  */
@@ -7,21 +9,34 @@ public class StringMultiply {
 
     public static void main(String[] args) {
         StringMultiply solution = new StringMultiply();
-        String multiply = solution.multiply("123", "456");
+        String multiply = solution.multiply("999", "0");
         System.out.println(multiply);
     }
 
     public String multiply(String num1, String num2) {
-        String result= "";
+        String result = "";
         for (int i = 0; i < num1.length(); i++) {
             String string = num1.substring(i, i + 1);
-
+            String resultTemp = multiplyOneNum(string, num2);
+            result = addStrings(result + "0", resultTemp);
         }
-        return null;
+        return new BigDecimal(result).toString();
     }
 
     public String multiplyOneNum(String num1, String num2) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder(num2).reverse();
+        int moreThanNine = 0;
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < num2.length(); i++) {
+            int temp = Integer.parseInt(stringBuilder.substring(i, i + 1));
+            int tempResult = temp * Integer.parseInt(num1) + moreThanNine;
+            result.append(tempResult % 10);
+            moreThanNine = tempResult / 10;
+        }
+        if (moreThanNine > 0) {
+            result.append(moreThanNine);
+        }
+        return result.reverse().toString();
     }
 
 
