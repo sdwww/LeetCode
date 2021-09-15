@@ -2,6 +2,7 @@ package medium;
 
 /**
  * 3. 无重复字符的最长子串
+ * 剑指 Offer 48. 最长不含重复字符的子字符串
  */
 public class LengthOfLongestSubstring {
     public static void main(String[] args) {

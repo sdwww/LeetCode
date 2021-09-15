@@ -2,6 +2,8 @@ package easy;
 
 /**
  * 53. 最大子序和
+ *
+ * 剑指 Offer 42. 连续子数组的最大和
  */
 public class MaxSubArray {
 
