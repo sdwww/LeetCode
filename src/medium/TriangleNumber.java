@@ -43,6 +43,7 @@ public class TriangleNumber {
             int j = i - 1;
             int k = 0;
             while (j > k) {
+                // 满足该条件，说明从num[k]到num[j]的数都满足要求，结果直接加上j - k
                 if (nums[j] + nums[k] > nums[i]) {
                     count += j - k;
                     j--;
