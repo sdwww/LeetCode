@@ -18,7 +18,7 @@ public class IntegerBreak {
         if (n == 2) {
             return 1;
         }
-        if(n==3){
+        if (n == 3) {
             return 2;
         }
         int[] nums = new int[n + 1];
@@ -27,6 +27,7 @@ public class IntegerBreak {
         nums[2] = 2;
         nums[3] = 3;
         for (int i = 4; i <= n; i++) {
+            // 乘2或者乘3，取最大值
             nums[i] = Math.max(nums[i - 2] * 2, nums[i - 3] * 3);
         }
         return nums[n];
