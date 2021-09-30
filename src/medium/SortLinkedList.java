@@ -19,6 +19,7 @@ public class SortLinkedList {
         System.out.println(sortLinkedList.sortList(node1));
     }
 
+    // 时间复杂度O(nlogn)
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -26,6 +27,7 @@ public class SortLinkedList {
         ListNode fast = head;
         ListNode slow = head;
         ListNode pre = slow;
+        // 快慢指针，找到中间节点slow
         while (fast != null && fast.next != null) {
             pre = slow;
             slow = slow.next;
@@ -39,8 +41,8 @@ public class SortLinkedList {
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode head = new ListNode(0);
-        ListNode current = head;
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
                 current.next = l1;
@@ -57,6 +59,6 @@ public class SortLinkedList {
         if (l2 != null) {
             current.next = l2;
         }
-        return head.next;
+        return dummy.next;
     }
 }
