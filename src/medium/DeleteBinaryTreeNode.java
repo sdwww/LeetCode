@@ -24,28 +24,45 @@ public class DeleteBinaryTreeNode {
     }
 
     public TreeNode deleteNode(TreeNode root, int key) {
-        // 找到key对应的treeNode
-        TreeNode searchNode = search(root, key);
-        // 如果treeNode不存在，直接返回root
-        if (searchNode == null) {
-            return root;
+        if (root == null) {
+            return null;
         }
-        if(searchNode.left==null &&searchNode.right==null){
-
+        if (key < root.val) {
+            root.left = deleteNode(root.left, key);
+        } else if (key > root.val) {
+            root.right = deleteNode(root.right, key);
+        } else {
+            // 如果目标节点无子节点，直接将节点置为null
+            if (root.left == null && root.right == null) {
+                root = null;
+            } else if (root.left != null) {
+                // 将这个左子树的最大值替换根节点，此时存在两个相同节点，将这个节点删除即可
+                root.val = findLeftMax(root);
+                root.left = deleteNode(root.left, root.val);
+            } else {
+                // 将这个右子树的最小值替换根节点，此时存在两个相同节点，将这个节点删除即可
+                root.val = findRightMin(root);
+                root.right = deleteNode(root.right, root.val);
+            }
         }
         return root;
     }
 
-    private TreeNode search(TreeNode root, int key) {
-        if (root == null) {
-            return null;
+    // 找到一个节点左子树的最大节点
+    private int findLeftMax(TreeNode treeNode) {
+        TreeNode node = treeNode.left;
+        while (node.right != null) {
+            node = node.right;
         }
-        if (root.val == key) {
-            return root;
+        return node.val;
+    }
+
+    // 找到一个节点右子树的最小节点
+    private int findRightMin(TreeNode treeNode) {
+        TreeNode node = treeNode.right;
+        while (node.left != null) {
+            node = node.left;
         }
-        if (key > root.val) {
-            return search(root.right, key);
-        }
-        return search(root.left, key);
+        return node.val;
     }
 }
