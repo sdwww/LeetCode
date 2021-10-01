@@ -15,6 +15,7 @@ public class LengthOfRepeatedSubarray {
         System.out.println(length);
     }
 
+    // 最长公共子串问题
     public int findLength(int[] nums1, int[] nums2) {
         int result = 0;
         // 以num1[i]结尾和nums2[j]结尾的最长重复子数组
