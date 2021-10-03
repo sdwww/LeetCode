@@ -32,7 +32,7 @@ public class CanPartition {
         int[] dp = new int[sum / 2 + 1];
         dp[0] = 1;
         for (int num : nums) {
-            // 每个元素必须不重复的放入
+            // 每个元素必须不重复的放入,倒序是为了避免当前数字对后续的影响
             for (int i = sum / 2; i >= num; i--) {
                 // dp[i]代表有多少种情况加起来得到i
                 dp[i] += dp[i - num];
