@@ -9,28 +9,29 @@ import java.util.LinkedList;
 public class ValidateStackSequences {
 
     public static void main(String[] args) {
-        ValidateStackSequences validateStackSequences = new ValidateStackSequences();
+        ValidateStackSequences solution = new ValidateStackSequences();
         int[] pushed = new int[]{1, 2, 3, 4, 5};
 //        int[] popped = new int[]{5, 4, 1, 2, 3};
         int[] popped = new int[]{4, 3, 5, 1, 2};
-        System.out.println(validateStackSequences.validateStackSequences(pushed, popped));
+        System.out.println(solution.validateStackSequences(pushed, popped));
     }
 
+    // 模拟
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        int pushedIndex = 0;
-        int poppedIndex = 0;
+        int pushIndex = 0;
+        int popIndex = 0;
         LinkedList<Integer> stack = new LinkedList<>();
-        while (pushedIndex < pushed.length) {
-            stack.push(pushed[pushedIndex++]);
-            while (!stack.isEmpty() && stack.peek().equals(popped[poppedIndex])) {
+        while (pushIndex < pushed.length) {
+            stack.push(pushed[pushIndex++]);
+            while (!stack.isEmpty() && stack.peek().equals(popped[popIndex])) {
                 stack.pop();
-                poppedIndex++;
+                popIndex++;
             }
         }
-        while (!stack.isEmpty() && stack.peek().equals(popped[poppedIndex])) {
+        while (!stack.isEmpty() && stack.peek().equals(popped[popIndex])) {
             stack.pop();
-            poppedIndex++;
+            popIndex++;
         }
-        return popped.length == poppedIndex;
+        return popped.length == popIndex;
     }
 }
