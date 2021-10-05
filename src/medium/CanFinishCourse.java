@@ -1,5 +1,5 @@
 /**
- * @(#)FindCourseOrder.java, 10月 04, 2021.
+ * @(#)CanFinishCourse.java, 10月 05, 2021.
  * <p>
  * Copyright 2021 fenbi.com. All rights reserved.
  * FENBI.COM PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
@@ -11,23 +11,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 210. 课程表 II
+ * 207. 课程表
  *
  * @author wangweiwei
  */
-public class FindCourseOrder {
+public class CanFinishCourse {
 
     public static void main(String[] args) {
-        FindCourseOrder solution = new FindCourseOrder();
-        int[] order = solution.findOrder(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}});
-        for (int num : order) {
-            System.out.println(num);
-        }
+        CanFinishCourse solution = new CanFinishCourse();
+        boolean b = solution.canFinish(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}});
+        System.out.println(b);
     }
 
-    // 时间复杂度O(n+m)
-    public int[] findOrder(int numCourses, int[][] prerequisites) {
-        List<Integer> result = new ArrayList<>();
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        int count = 0;
         // 入度
         int[] indegs = new int[numCourses];
         // 邻接表
@@ -52,7 +49,7 @@ public class FindCourseOrder {
         // 从队列中取出元素，将对应的入度减一，直到队列为空
         while (!queue.isEmpty()) {
             Integer poll = queue.poll();
-            result.add(poll);
+            count++;
             for (Integer num : edges.get(poll)) {
                 indegs[num]--;
                 if (indegs[num] == 0) {
@@ -60,9 +57,6 @@ public class FindCourseOrder {
                 }
             }
         }
-        if (result.size() == numCourses) {
-            return result.stream().mapToInt(Integer::intValue).toArray();
-        }
-        return new int[0];
+        return count == numCourses;
     }
 }
