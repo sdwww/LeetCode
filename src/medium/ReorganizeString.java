@@ -14,17 +14,19 @@ public class ReorganizeString {
         System.out.println(abaa);
     }
 
-    public String reorganizeString(String S) {
+    public String reorganizeString(String s) {
         short[] counts = new short[26];
         int maxCount = 0;
-        for (int i = 0; i < S.length(); i++) {
-            int index= S.charAt(i) - 'a';
+        for (int i = 0; i < s.length(); i++) {
+            int index = s.charAt(i) - 'a';
             counts[index]++;
-            maxCount =Math.max(maxCount,counts[index]);
+            maxCount = Math.max(maxCount, counts[index]);
         }
-        if (maxCount * 2 > S.length() + 1) {
+        // 如果一个元素的数量大于 长度+1，失败
+        if (maxCount * 2 > s.length() + 1) {
             return "";
         }
+        // 使用最大堆，按照频率进行排序
         PriorityQueue<Character> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> -counts[o - 'a']));
         for (int i = 0; i < 26; i++) {
             if (counts[i] > 0) {
@@ -32,6 +34,7 @@ public class ReorganizeString {
             }
         }
         StringBuilder sb = new StringBuilder();
+        // 一次取出两个字符
         while (priorityQueue.size() >= 2) {
             Character poll1 = priorityQueue.poll();
             Character poll2 = priorityQueue.poll();
