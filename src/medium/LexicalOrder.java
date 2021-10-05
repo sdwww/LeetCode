@@ -13,6 +13,7 @@ public class LexicalOrder {
         System.out.println(solution.lexicalOrder(124));
     }
 
+    // 从高位到低位，dfs
     public List<Integer> lexicalOrder(int n) {
         List<Integer> list = new ArrayList<>();
         for (int i = 1; i <= 9; i++) {

@@ -8,9 +8,10 @@ public class HappyNumber {
 
     public static void main(String[] args) {
         HappyNumber solution = new HappyNumber();
-       System.out.println(solution.isHappy(19));
+        System.out.println(solution.isHappy(19));
     }
 
+    // 快慢指针
     public boolean isHappy(int n) {
         int fast = trans(trans(n));
         int slow = trans(n);
