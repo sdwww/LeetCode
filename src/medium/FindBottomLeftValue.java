@@ -31,6 +31,7 @@ public class FindBottomLeftValue {
         return maxValue;
     }
 
+    // 前序遍历每一层的第一个节点
     private void search(int length, TreeNode treeNode) {
         if (treeNode == null) {
             return;
