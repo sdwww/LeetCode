@@ -29,30 +29,31 @@ public class ReverseKGroup {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         // 前一段的结尾
-        ListNode pre = dummy;
+        ListNode preEnd = dummy;
         // 本段的结尾
-        ListNode end = dummy;
+        ListNode currentEnd = dummy;
 
-        while (end.next != null) {
-            for (int i = 0; i < k && end != null; i++) {
-                end = end.next;
+        while (currentEnd.next != null) {
+            for (int i = 0; i < k && currentEnd != null; i++) {
+                currentEnd = currentEnd.next;
             }
-            if (end == null) {
+            if (currentEnd == null) {
                 break;
             }
             // 本段的开始
-            ListNode start = pre.next;
+            ListNode currentStart = preEnd.next;
             // 下一段的开始
-            ListNode next = end.next;
+            ListNode nextStart = currentEnd.next;
             // 截断链表
-            end.next = null;
-            pre.next = reverseList(start);
+            currentEnd.next = null;
+            // 反转链表
+            preEnd.next = reverseList(currentStart);
             // 反转之后的尾部连接下一段的头部
-            start.next = next;
-
-            pre = start;
-
-            end = pre;
+            currentStart.next = nextStart;
+            // 当前的开始赋值给preEnd
+            preEnd = currentStart;
+            // 为了后续的遍历，currentEnd = preEnd
+            currentEnd = preEnd;
         }
 
         return dummy.next;
