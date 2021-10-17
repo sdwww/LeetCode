@@ -28,7 +28,7 @@ public class ReverseBetweenList {
         if (head == null || head.next == null || left == right) {
             return head;
         }
-        ListNode dummy  = new ListNode(-1);
+        ListNode dummy = new ListNode(-1);
         dummy.next = head;
         ListNode preEnd = dummy;
         for (int i = 1; i < left; i++) {
