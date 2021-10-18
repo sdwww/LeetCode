@@ -29,7 +29,7 @@ public class SearchSpinSortArray {
                 }
             } else {
                 // 有序
-                if (target > nums[mid] && target < nums[0]) {
+                if (target > nums[mid] && target <= nums[nums.length - 1]) {
                     left = mid + 1;
                 } else {
                     right = mid - 1;

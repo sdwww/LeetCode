@@ -1,6 +1,5 @@
 package medium;
 
-import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
@@ -21,7 +20,7 @@ public class FindKthLargest {
      * @param k    获取第k大
      * @return 第k大
      */
-    public int findKthLargest(int[] nums, int k) {
+    public int findKthLargest1(int[] nums, int k) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(k + 1);
         for (int num : nums) {
             priorityQueue.add(num);
@@ -32,54 +31,81 @@ public class FindKthLargest {
         return priorityQueue.element();
     }
 
-    /**
-     * 手动实现最小堆
-     *
-     * @param nums 所有数据
-     * @param k    获取第k大
-     * @return 第k大
-     */
-    public int findKthLargest1(int[] nums, int k) {
-        int[] minHeap = new int[k];
-        for (int i = 0; i < k; i++) {
-            minHeap[i] = nums[i];
+    // 快速排序，从大到小排序，时间复杂度O(n)
+    public int findKthLargest(int[] nums, int k) {
+        quickSort(nums, 0, nums.length - 1, k-1);
+        return nums[k - 1];
+    }
+
+    private void quickSort(int[] nums, int start, int end, int index) {
+        if (start >= end) {
+            return;
         }
-        Arrays.sort(minHeap);
+        int partition = partition(nums, start, end);
+        if (partition > index) {
+            quickSort(nums, start, partition - 1, index);
+        }
+        if (partition < index) {
+            quickSort(nums, partition + 1, end, index);
+        }
+    }
+
+    private int partition(int[] nums, int start, int end) {
+        int pivot = nums[start];
+        int left = start;
+        int right = end;
+        while (left != right) {
+            while (left < right && nums[right] < pivot) {
+                right--;
+            }
+            while (left < right && nums[left] >= pivot) {
+                left++;
+            }
+            if (left != right) {
+                swap(left, right, nums);
+            }
+        }
+        swap(left, start, nums);
+        return left;
+    }
+
+
+    // 手动实现最小堆,时间复杂度O(nlog(k))，空间复杂度O(log(k))(递归栈空间）
+    public int findKthLargest2(int[] nums, int k) {
+        // 构建堆
+        for (int i = k - 1; i >= 0; i--) {
+            adjust(nums, k, i);
+        }
+        // 调整堆
         for (int i = k; i < nums.length; i++) {
-            if (nums[i] > minHeap[0]) {
-                addMinHeap(nums[i], minHeap);
+            if (nums[i] > nums[0]) {
+                nums[0] = nums[i];
+                adjust(nums, k, 0);
             }
         }
-        return minHeap[0];
+        return nums[0];
     }
 
-    /**
-     * 最小堆添加节点
-     *
-     * @param num     数字
-     * @param minHeap 最小堆
-     */
-    private void addMinHeap(int num, int[] minHeap) {
-        minHeap[0] = num;
-        int swapIndex = 0;
-        while ((swapIndex * 2 + 1 < minHeap.length && minHeap[swapIndex * 2 + 1] < num)
-                || (swapIndex * 2 + 2 < minHeap.length && minHeap[swapIndex * 2 + 2] < num)) {
-            int nextIndex;
-            if ((swapIndex * 2 + 2) >= minHeap.length || minHeap[swapIndex * 2 + 1] < minHeap[swapIndex * 2 + 2]) {
-                nextIndex = swapIndex * 2 + 1;
-            } else {
-                nextIndex = swapIndex * 2 + 2;
-            }
-            swap(swapIndex, nextIndex, minHeap);
-            swapIndex = nextIndex;
+
+    private void adjust(int[] nums, int length, int index) {
+        int left = index * 2 + 1;
+        int right = index * 2 + 2;
+        int maxIndex = index;
+        if (left < length && nums[left] < nums[maxIndex]) {
+            maxIndex = left;
+        }
+        if (right < length && nums[right] < nums[maxIndex]) {
+            maxIndex = right;
+        }
+        if (maxIndex != index) {
+            swap(index, maxIndex, nums);
+            adjust(nums, length, maxIndex);
         }
     }
 
-    private void swap(int index1, int index2, int[] minHeap) {
-        int temp = minHeap[index1];
-        minHeap[index1] = minHeap[index2];
-        minHeap[index2] = temp;
+    private void swap(int source, int target, int[] minHeap) {
+        int temp = minHeap[source];
+        minHeap[source] = minHeap[target];
+        minHeap[target] = temp;
     }
-
-
 }

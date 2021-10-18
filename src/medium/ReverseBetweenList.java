@@ -28,56 +28,39 @@ public class ReverseBetweenList {
         if (head == null || head.next == null || left == right) {
             return head;
         }
-        // 将链表分成三段，中间段反转，标记四个节点
-        ListNode listNode = head;
-        ListNode node1 = null;
-        ListNode node2 = null;
-        ListNode node3 = null;
-        ListNode node4 = null;
-        int count = 1;
-        while (listNode != null) {
-            if (count == left - 1) {
-                node1 = listNode;
-            }
-            if (count == left) {
-                node2 = listNode;
-            }
-            if (count == right) {
-                node3 = listNode;
-            }
-            if (count == right + 1) {
-                node4 = listNode;
-            }
-            listNode = listNode.next;
-            count++;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode preEnd = dummy;
+        for (int i = 1; i < left; i++) {
+            preEnd = preEnd.next;
         }
-        reverseList(node2, node3);
-        if (node1 != null) {
-            node1.next = node3;
+        ListNode currentStart = preEnd.next;
+        ListNode currentEnd = preEnd;
+        for (int i = 0; i < right - left + 1; i++) {
+            currentEnd = currentEnd.next;
         }
-        if (node2 != null) {
-            node2.next = node4;
-        }
-        if (node1 == null) {
-            return node3;
-        }
-        return head;
+        ListNode nextStart = currentEnd.next;
+        currentEnd.next = null;
+        preEnd.next = reverseList(currentStart);
+        currentStart.next = nextStart;
+        return dummy.next;
     }
 
-    private void reverseList(ListNode node1, ListNode node2) {
-        if (node1 == null || node1.next == null) {
-            return;
+    private ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
         }
-        ListNode first = node1.next.next;
-        ListNode next = node1.next;
-        ListNode last = node1;
+        ListNode first = head.next.next;
+        ListNode next = head.next;
+        ListNode last = head;
         last.next = null;
-        while (first != null && next != node2) {
+        while (first != null) {
             next.next = last;
             last = next;
             next = first;
             first = first.next;
         }
         next.next = last;
+        return next;
     }
 }
