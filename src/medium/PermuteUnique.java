@@ -12,41 +12,37 @@ public class PermuteUnique {
 
     public static void main(String[] args) {
         PermuteUnique solution = new PermuteUnique();
-        int[] arr = {1, 2, 3};
+        int[] arr = {1, 1,1, 2};
         System.out.println(solution.permuteUnique(arr));
     }
 
     public List<List<Integer>> permuteUnique(int[] nums) {
-        boolean[] used = new boolean[nums.length];
+        Arrays.sort(nums);
+        boolean[] visited = new boolean[nums.length];
         List<List<Integer>> lists = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        generate(lists, list, used, nums);
+        generate(lists, new ArrayList<>(), nums, visited);
         return lists;
     }
 
-    private void generate(List<List<Integer>> lists, List<Integer> list, boolean[] used, int[] nums) {
-        if (list.size() == nums.length) {
-            lists.add(list);
+    private void generate(List<List<Integer>> lists, List<Integer> temp, int[] nums, boolean[] visited) {
+        if (temp.size() == nums.length) {
+            lists.add(new ArrayList<>(temp));
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (!used[i]&&!isExist(used,nums,i)) {
-                used[i] = true;
-                List<Integer> listTemp = new ArrayList<>(list);
-                listTemp.add(nums[i]);
-                generate(lists, listTemp, used, nums);
-                used[i] = false;
+            if (visited[i]) {
+                continue;
             }
-
-        }
-    }
-
-    private boolean isExist(boolean[] used, int[] nums, int index) {
-        for (int i = 0; i < used.length; i++) {
-            if (i > index && used[i] && nums[index] == nums[i]) {
-                return true;
+            // 如果当前值和上一个值重复，应该从左往右递归，不能乱序
+            if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) {
+                continue;
             }
+            // 标准回溯写法
+            temp.add(nums[i]);
+            visited[i] = true;
+            generate(lists, temp, nums, visited);
+            visited[i] = false;
+            temp.remove(temp.size() - 1);
         }
-        return false;
     }
 }
