@@ -7,14 +7,35 @@ public class TrapWater {
 
     public static void main(String[] args) {
         TrapWater trapWater = new TrapWater();
-        int[] nums = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-//        int[] nums = new int[]{4, 2, 0, 3, 2, 5};
+//        int[] nums = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        int[] nums = new int[]{4, 2, 0, 3, 2, 5};
         System.out.println(trapWater.trap(nums));
 
     }
 
-    // 每一个节点的左右最高点的最小值，时间复杂度O(n2)
+    // 双指针，时间复杂度O(n)，空间复杂度O(1)
     public int trap(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int maxLeft = Integer.MIN_VALUE;
+        int maxRight = Integer.MIN_VALUE;
+        int result = 0;
+        while (left < right) {
+            maxLeft = Math.max(height[left], maxLeft);
+            maxRight = Math.max(height[right], maxRight);
+            if (maxLeft > maxRight) {
+                result += maxRight - height[right];
+                right--;
+            } else {
+                result += maxLeft - height[left];
+                left++;
+            }
+        }
+        return result;
+    }
+
+    // 根据木桶效应，从左到右和从右到左找当前节点两边最大值的最小值，时间复杂度O(n)，空间复杂度O(n)
+    public int trapArray(int[] height) {
         if (height.length == 0) {
             return 0;
         }
@@ -35,7 +56,7 @@ public class TrapWater {
         return total;
     }
 
-    // 每一个节点的左右最高点的最小值，时间复杂度O(n2)
+    // 每一个节点的左右最高点的最小值，时间复杂度O(n2),空间复杂度O(1)
     public int trapLeftRight(int[] height) {
         int total = 0;
         for (int i = 0; i < height.length; i++) {
