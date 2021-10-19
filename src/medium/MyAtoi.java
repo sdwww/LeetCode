@@ -1,5 +1,8 @@
 package medium;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 8. 字符串转换整数 (atoi)
  */
@@ -7,11 +10,62 @@ public class MyAtoi {
 
     public static void main(String[] args) {
         MyAtoi myAtoi = new MyAtoi();
-        int i = myAtoi.myAtoi("  +  413");
+        int i = myAtoi.myAtoi("  -1000000+666");
         System.out.println(i);
     }
 
+    // 状态机
     public int myAtoi(String s) {
+        Automaton automaton = new Automaton();
+        for (int i = 0; i < s.length(); i++) {
+            automaton.search(s.charAt(i));
+        }
+        return (int) (automaton.sign * automaton.answer);
+    }
+
+    private static class Automaton {
+        public int sign = 1;
+        public long answer = 0;
+        private String state = "start";
+        private static final Map<String, String[]> MAP = new HashMap<>();
+
+        static {
+            MAP.put("start", new String[]{"start", "signed", "inNumber", "end"});
+            MAP.put("signed", new String[]{"end", "end", "inNumber", "end"});
+            MAP.put("inNumber", new String[]{"end", "end", "inNumber", "end"});
+            MAP.put("end", new String[]{"end", "end", "end", "end"});
+        }
+
+        public void search(char c) {
+            state = MAP.get(state)[getIndex(c)];
+            if ("inNumber".equals(state)) {
+                answer = answer * 10 + c - '0';
+                if (sign == 1) {
+                    answer = Math.min(answer, Integer.MAX_VALUE);
+                } else {
+                    answer = Math.min(answer, -(long) Integer.MIN_VALUE);
+                }
+            }
+            if ("signed".equals(state)) {
+                sign = c == '+' ? 1 : -1;
+            }
+        }
+
+        private int getIndex(char c) {
+            if (c == ' ') {
+                return 0;
+            }
+            if (c == '+' || c == '-') {
+                return 1;
+            }
+            if (Character.isDigit(c)) {
+                return 2;
+            }
+            return 3;
+        }
+    }
+
+    public int myAtoi1(String s) {
         int result = 0;
         // 是否是开头
         boolean start = false;
