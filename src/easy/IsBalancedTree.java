@@ -21,7 +21,29 @@ public class IsBalancedTree {
         System.out.println(isBalancedTree.isBalanced(root));
     }
 
+    // 时间复杂度O(n)
     public boolean isBalanced(TreeNode root) {
+        return getHeight(root) != -1;
+    }
+
+    // 获取高度，如果不平衡返回-1;
+    private int getHeight(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftHeight = getHeight(root.left);
+        int rightHeight = getHeight(root.right);
+        if (leftHeight == -1 || rightHeight == -1) {
+            return -1;
+        }
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        }
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    // 时间复杂度O(n2)
+    public boolean isBalanced1(TreeNode root) {
         // 节点为空返回true
         if (root == null) {
             return true;
