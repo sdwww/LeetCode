@@ -9,7 +9,7 @@ public class ReverseWords {
 
     public static void main(String[] args) {
         ReverseWords reverseWords = new ReverseWords();
-        String s = reverseWords.reverseWords(" a good example ");
+        String s = reverseWords.reverseWords(" a  good example ");
         System.out.println(s);
     }
 
