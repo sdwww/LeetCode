@@ -11,11 +11,36 @@ public class Permute {
     public static void main(String[] args) {
         Permute solution = new Permute();
         // 123 213 312 132 231 321
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
+        int[] arr = {1, 2, 3, 4};
         System.out.println(solution.permute(arr));
     }
 
     public List<List<Integer>> permute(int[] nums) {
+        boolean[] visited = new boolean[nums.length];
+        List<List<Integer>> lists = new ArrayList<>();
+        generate(lists, new ArrayList<>(), nums, visited);
+        return lists;
+    }
+
+    private void generate(List<List<Integer>> lists, List<Integer> temp, int[] nums, boolean[] visited) {
+        if (temp.size() == nums.length) {
+            lists.add(new ArrayList<>(temp));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (visited[i]) {
+                continue;
+            }
+            // 标准回溯写法
+            temp.add(nums[i]);
+            visited[i] = true;
+            generate(lists, temp, nums, visited);
+            visited[i] = false;
+            temp.remove(temp.size() - 1);
+        }
+    }
+
+    public List<List<Integer>> permute1(int[] nums) {
         List<List<Integer>> lists = new ArrayList<>();
         // 将array转换成list
         List<Integer> allList = new ArrayList<>();

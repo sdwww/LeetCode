@@ -14,7 +14,7 @@ package medium;
 public class SingleNonDuplicate {
 
     public static void main(String[] args) {
-        int[] nums = {1, 1, 2, 2, 3, 3, 4};
+        int[] nums = {5, 5, 3, 1, 1, 2, 2};
         SingleNonDuplicate solution = new SingleNonDuplicate();
         int i = solution.singleNonDuplicate(nums);
         System.out.println(i);
@@ -28,20 +28,20 @@ public class SingleNonDuplicate {
             // 如果这个和后面数字相同
             if (nums[mid] == nums[mid + 1]) {
                 // 如果mid前面是偶数个,说明结果在右边
-                if ((mid - left) % 2 == 0) {
-                    left = mid;
+                if (mid % 2 == 0) {
+                    left = mid + 2;
                 } // 否则结果在左边
                 else {
                     right = mid - 1;
                 }
             } // 如果这个和前面数字相同
             else if (nums[mid] == nums[mid - 1]) {
-                // 如果mid+1前面是偶数个,说明结果在右边
-                if ((mid - left + 1) % 2 == 0) {
-                    left = mid + 1;
-                } // 否则结果在左边
+                // 如果mid+1前面是偶数个,说明结果在左边
+                if (mid % 2 == 0) {
+                    right = mid - 2;
+                } // 否则结果在右边
                 else {
-                    right = mid;
+                    left = mid + 1;
                 }
             }// 如果和前面后面都不一样，说明当前数字就是结果
             else {
