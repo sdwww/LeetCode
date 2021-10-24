@@ -18,30 +18,29 @@ public class GenerateMatrix {
     }
 
     public int[][] generateMatrix(int n) {
+        int leftI = 0;
+        int rightI = n - 1;
+        int leftJ = 0;
+        int rightJ = n - 1;
         int count = 1;
-        int i = 0, j = -1;
         int[][] arr = new int[n][n];
-        while (count <= n * n) {
-            while (j + 1 < arr.length && arr[i][j + 1] == 0) {
-                arr[i][j + 1] = count;
-                j++;
-                count++;
+        while (leftI <= rightI && leftJ <= rightJ) {
+            for (int i = leftJ; i <= rightJ; i++) {
+                arr[leftI][i] = count++;
             }
-            while (i + 1 < arr.length && arr[i + 1][j] == 0) {
-                arr[i + 1][j] = count;
-                i++;
-                count++;
+            leftI++;
+            for (int i = leftI; i <= rightI; i++) {
+                arr[i][rightJ] = count++;
             }
-            while (j > 0 && arr[i][j - 1] == 0) {
-                arr[i][j - 1] = count;
-                j--;
-                count++;
+            rightJ--;
+            for (int i = rightJ; i >= leftJ; i--) {
+                arr[rightI][i] = count++;
             }
-            while (i > 0 && arr[i - 1][j] == 0) {
-                arr[i - 1][j] = count;
-                i--;
-                count++;
+            rightI--;
+            for (int i = rightI; i >= leftI; i--) {
+                arr[i][leftJ] = count++;
             }
+            leftJ++;
         }
         return arr;
     }

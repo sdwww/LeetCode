@@ -21,27 +21,29 @@ public class FindDiagonalOrder {
 
     // 时间复杂度O(m*n)
     public int[] findDiagonalOrder(int[][] mat) {
-        int[] result = new int[mat.length * mat[0].length];
+        int m = mat.length;
+        int n = mat[0].length;
+        int[] result = new int[m * n];
         int count = 0;
         // 对角线的横坐标和纵坐标之和为常数i
-        for (int i = 0; i < mat.length + mat[0].length - 1; i++) {
+        for (int i = 0; i < m + n - 1; i++) {
             // 确定初始位置，避免无效循环
-            for (int j = Math.max(0, i - mat[0].length); j < mat.length && i - j >= 0; j++) {
+            for (int j = Math.max(0, i - n); j < m && i - j >= 0 && i - j < n; j++) {
                 if (i % 2 == 0) {
                     break;
                 }
                 // 边界控制
-                if (i - j >= mat[0].length) {
+                if (i - j >= n) {
                     continue;
                 }
                 result[count++] = mat[j][i - j];
             }
-            for (int j = Math.max(0, i - mat.length); j < mat[0].length && i - j >= 0; j++) {
+            for (int j = Math.max(0, i - m); j < n && i - j >= 0; j++) {
                 if (i % 2 == 1) {
                     break;
                 }
                 // 边界空值
-                if (i - j >= mat.length) {
+                if (i - j >= m) {
                     continue;
                 }
                 result[count++] = mat[i - j][j];
