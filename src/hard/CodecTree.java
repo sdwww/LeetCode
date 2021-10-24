@@ -57,9 +57,6 @@ public class CodecTree {
     }
 
     private TreeNode dfsDeserialize(String[] split) {
-        if (count >= split.length) {
-            return null;
-        }
         count++;
         if ("n".equals(split[count])) {
             return null;
