@@ -24,41 +24,48 @@ public class SortLinkedList {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode fast = head;
-        ListNode slow = head;
-        ListNode pre = slow;
-        // 快慢指针，找到中间节点slow
-        while (fast != null && fast.next != null) {
-            pre = slow;
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        // 精髓所在，将链表切成两部分
-        pre.next = null;
-        ListNode list1 = sortList(head);
-        ListNode list2 = sortList(slow);
-        return mergeTwoLists(list1, list2);
+        ListNode middle = findMiddle(head);
+        ListNode newHead = middle.next;
+        middle.next = null;
+        ListNode sort1 = sortList(head);
+        ListNode sort2 = sortList(newHead);
+        return mergeSort(sort1, sort2);
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0);
+    private ListNode mergeSort(ListNode head1, ListNode head2) {
+        ListNode current1 = head1;
+        ListNode current2 = head2;
+        ListNode dummy = new ListNode(-1);
         ListNode current = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                current.next = l1;
-                l1 = l1.next;
+        while (current1 != null && current2 != null) {
+            if (current1.val > current2.val) {
+                current.next = current2;
+                current2 = current2.next;
             } else {
-                current.next = l2;
-                l2 = l2.next;
+                current.next = current1;
+                current1 = current1.next;
             }
             current = current.next;
         }
-        if (l1 != null) {
-            current.next = l1;
+        if (current1 != null) {
+            current.next = current1;
         }
-        if (l2 != null) {
-            current.next = l2;
+        if (current2 != null) {
+            current.next = current2;
         }
         return dummy.next;
+    }
+
+    private ListNode findMiddle(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode fast = head.next;
+        ListNode slow = head;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
     }
 }

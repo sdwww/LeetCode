@@ -2,11 +2,15 @@ package medium;
 
 import base.Node;
 
+import java.util.HashMap;
+
 /**
  * 138. 复制带随机指针的链表
  * 剑指 Offer 35. 复杂链表的复制
  */
 public class CopyRandomList {
+
+    HashMap<Node, Node> map = new HashMap<>();
 
     public static void main(String[] args) {
         CopyRandomList copyRandomList = new CopyRandomList();
@@ -17,10 +21,26 @@ public class CopyRandomList {
         node2.next = node3;
         node2.random = node1;
         Node node = copyRandomList.copyRandomList(node1);
-        System.out.println(node);
+        System.out.println(node.val);
+        System.out.println(node.next.next.val);
+        System.out.println(node.next.random.val);
     }
 
+    // hash+递归
     public Node copyRandomList(Node head) {
+        if (head == null) {
+            return null;
+        }
+        if (!map.containsKey(head)) {
+            Node newNode = new Node(head.val);
+            map.put(head, newNode);
+            newNode.random = copyRandomList(head.random);
+            newNode.next = copyRandomList(head.next);
+        }
+        return map.get(head);
+    }
+
+    public Node copyRandomList1(Node head) {
         if (head == null) {
             return null;
         }

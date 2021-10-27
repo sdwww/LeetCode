@@ -10,7 +10,7 @@ public class MySqrt {
         System.out.println(mySqrt.mySqrt(1));
     }
 
-
+    // 万物皆可二分
     public int mySqrt(int x) {
         int left = 0, right = x;
         int mid;
