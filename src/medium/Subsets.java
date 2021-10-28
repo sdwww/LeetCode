@@ -55,19 +55,20 @@ public class Subsets {
      */
     public List<List<Integer>> subsets2(int[] nums) {
         List<List<Integer>> lists = new ArrayList<>();
-        subset(lists, 0, new ArrayList<>(), nums);
+        dfs(lists, 0, new ArrayList<>(), nums);
         return lists;
     }
 
-    private void subset(List<List<Integer>> lists, int index, List<Integer> trace, int[] nums) {
+    private void dfs(List<List<Integer>> lists, int index, List<Integer> trace, int[] nums) {
         if (index == nums.length) {
-            lists.add(trace);
+            lists.add(new ArrayList<>(trace));
             return;
         }
-        ArrayList<Integer> uselessList = new ArrayList<>(trace);
-        subset(lists, index + 1, uselessList, nums);
-        ArrayList<Integer> useList = new ArrayList<>(trace);
-        useList.add(nums[index]);
-        subset(lists, index + 1, useList, nums);
+        // 添加值
+        trace.add(nums[index]);
+        dfs(lists, index + 1, trace, nums);
+        trace.remove(trace.size() - 1);
+        // 不添加值
+        dfs(lists, index + 1, trace, nums);
     }
 }

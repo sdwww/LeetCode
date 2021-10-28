@@ -8,19 +8,24 @@ public class MinArray {
 
     public static void main(String[] args) {
         MinArray minArray = new MinArray();
-        System.out.println(minArray.findMin(new int[]{4, 5, 6, 7, 0, 1, 2}));
+        System.out.println(minArray.findMin(new int[]{2,1}));
     }
 
     public int findMin(int[] nums) {
-        int low = 0, high = nums.length - 1;
-        while (low < high - 1) {
-            int mid = (low + high) / 2;
-            if (nums[mid] < nums[nums.length - 1]) {
-                high = mid;
+        if (nums[0] <= nums[nums.length - 1]) {
+            return nums[0];
+        }
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            // nums[mid]可能为nums[0],但是nums[0]不可能为结果
+            if (nums[mid] >= nums[0]) {
+                left = mid + 1;
             } else {
-                low = mid + 1;
+                right = mid;
             }
         }
-        return Math.min(nums[low], nums[high]);
+        return nums[left];
     }
 }

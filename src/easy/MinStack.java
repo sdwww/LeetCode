@@ -14,6 +14,7 @@ public class MinStack {
     public MinStack() {
         stack = new LinkedList<>();
         minStack = new LinkedList<>();
+        // 为了第一次比较，这样栈中一直有数据
         minStack.push(Integer.MAX_VALUE);
     }
 

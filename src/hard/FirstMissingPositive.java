@@ -18,10 +18,9 @@ public class FirstMissingPositive {
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {
+            // 每次让当前位置的元素到正确的位置
             while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
-                int temp = nums[nums[i] - 1];
-                nums[nums[i] - 1] = nums[i];
-                nums[i] = temp;
+                swap(nums, nums[i] - 1, i);
             }
         }
         int j;
@@ -31,6 +30,12 @@ public class FirstMissingPositive {
             }
         }
         return j + 1;
+    }
+
+    private void swap(int[] nums, int source, int target) {
+        int temp = nums[source];
+        nums[source] = nums[target];
+        nums[target] = temp;
     }
 
     // hash,时间复杂度O(n),空间复杂度O(n)
