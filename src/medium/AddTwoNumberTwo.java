@@ -22,6 +22,7 @@ public class AddTwoNumberTwo {
         System.out.println(listNode);
     }
 
+    // 三个栈
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         LinkedList<Integer> stack1 = new LinkedList<>();
         LinkedList<Integer> stack2 = new LinkedList<>();
