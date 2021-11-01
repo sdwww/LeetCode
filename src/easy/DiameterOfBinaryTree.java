@@ -9,7 +9,7 @@ import base.TreeNode;
  */
 public class DiameterOfBinaryTree {
 
-    int max = 0;
+    private int max = 0;
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
@@ -28,6 +28,21 @@ public class DiameterOfBinaryTree {
     }
 
     public int diameterOfBinaryTree(TreeNode root) {
+        getHeight(root);
+        return max;
+    }
+
+    private int getHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int leftHeight = getHeight(node.left);
+        int rightHeight = getHeight(node.right);
+        max = Math.max(leftHeight + rightHeight, max);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    public int diameterOfBinaryTree1(TreeNode root) {
         int result = 0;
         TreeNode treeNode = root;
         while (treeNode != null) {

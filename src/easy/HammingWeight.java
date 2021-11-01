@@ -16,6 +16,7 @@ public class HammingWeight {
         if (n >= 0) {
             return countge0(n);
         } else {
+            // 转换成补码
             n = Math.abs(n) - 1;
             return 32 - countge0(n);
         }
