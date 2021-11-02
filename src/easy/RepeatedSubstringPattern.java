@@ -9,12 +9,16 @@ public class RepeatedSubstringPattern {
 
     public static void main(String[] args) {
         RepeatedSubstringPattern solution = new RepeatedSubstringPattern();
-        boolean b = solution.repeatedSubstringPattern("abcabc");
+        boolean b = solution.repeatedSubstringPattern("abcab");
         System.out.println(b);
     }
 
-    // 暴力，时间复杂度O(n2)
     public boolean repeatedSubstringPattern(String s) {
+        return (s + s).indexOf(s, 1) != s.length();
+    }
+
+    // 暴力，时间复杂度O(n2)
+    public boolean repeatedSubstringPattern1(String s) {
         for (int i = 1; i < s.length(); i++) {
             if (repeatedSubstringPattern(s, s.substring(0, i))) {
                 return true;

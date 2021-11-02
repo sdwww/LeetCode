@@ -12,7 +12,7 @@ public class CanJump {
         System.out.println(jump);
     }
 
-    // 贪心算法
+    // 贪心算法，时间复杂度O(n),空间复杂度O(1)
     public boolean canJump(int[] nums) {
         int maxJump = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -25,7 +25,7 @@ public class CanJump {
         return true;
     }
 
-    // 动态规划
+    // 动态规划，时间复杂度O(n),空间复杂度O(n)
     public boolean canJump1(int[] nums) {
         boolean[] dp = new boolean[nums.length];
         dp[0] = true;
