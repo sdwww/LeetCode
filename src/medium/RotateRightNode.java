@@ -7,7 +7,7 @@ import base.ListNode;
  *
  * @author wangweiwei
  */
-public class rotateRightNode {
+public class RotateRightNode {
 
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
@@ -20,7 +20,7 @@ public class rotateRightNode {
         node3.next = node4;
         node4.next = node5;
 
-        rotateRightNode solution = new rotateRightNode();
+        RotateRightNode solution = new RotateRightNode();
         ListNode listNode = solution.rotateRight(node1, 1);
         System.out.println(listNode);
     }
