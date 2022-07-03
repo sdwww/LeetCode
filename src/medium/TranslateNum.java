@@ -26,6 +26,6 @@ public class TranslateNum {
                 dp[i] = dp[i - 1];
             }
         }
-        return dp[dp.length-1];
+        return dp[dp.length - 1];
     }
 }

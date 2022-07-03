@@ -1,7 +1,6 @@
 package medium;
 
 import base.TreeNode;
-import easy.LevelOrderTwo;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -20,7 +20,7 @@ public class CanJump {
                 return false;
             }
 
-           maxJump = Math.max(maxJump, i + nums[i]);
+            maxJump = Math.max(maxJump, i + nums[i]);
         }
         return true;
     }

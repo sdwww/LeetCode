@@ -7,10 +7,11 @@ package hard;
 public class FindMedianSortedArrays {
     public static void main(String[] args) {
         FindMedianSortedArrays solution = new FindMedianSortedArrays();
-        int[] arr1 = {1, 3,4};
+        int[] arr1 = {1, 3, 4};
         int[] arr2 = {};
         System.out.println(solution.findMedianSortedArrays(arr1, arr2));
     }
+
     // 时间复杂度 O(M+N),不满足题意
     @Deprecated
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -34,7 +35,7 @@ public class FindMedianSortedArrays {
         if ((nums1.length + nums2.length) % 2 == 1) {
             return current;
         } else {
-            return (double)(current + last) / 2;
+            return (double) (current + last) / 2;
         }
     }
 }

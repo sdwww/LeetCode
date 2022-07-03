@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class LengthOfLIS {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{10, 9, 2, 5, 3, 7, 101, 18,0};
+        int[] nums = new int[]{10, 9, 2, 5, 3, 7, 101, 18, 0};
         LengthOfLIS lengthOfLIS = new LengthOfLIS();
         int i = lengthOfLIS.lengthOfLIS(nums);
         System.out.println(i);

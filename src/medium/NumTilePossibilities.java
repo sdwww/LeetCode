@@ -28,13 +28,13 @@ public class NumTilePossibilities {
         return count;
     }
 
-    private void search(HashMap<Character, Integer> hashMap){
+    private void search(HashMap<Character, Integer> hashMap) {
         for (Character character : hashMap.keySet()) {
             if (hashMap.get(character) >= 1) {
-                hashMap.put(character,hashMap.get(character)-1);
+                hashMap.put(character, hashMap.get(character) - 1);
                 search(hashMap);
                 count++;
-                hashMap.put(character,hashMap.get(character)+1);
+                hashMap.put(character, hashMap.get(character) + 1);
             }
         }
     }

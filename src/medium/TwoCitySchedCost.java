@@ -23,8 +23,8 @@ public class TwoCitySchedCost {
             difference[i] = costs[i][1] - costs[i][0];
         }
         Arrays.sort(difference);
-        for(int i=0;i<costs.length/2;i++){
-            cost+=difference[i];
+        for (int i = 0; i < costs.length / 2; i++) {
+            cost += difference[i];
         }
         return cost;
     }

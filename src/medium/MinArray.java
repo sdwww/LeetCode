@@ -8,7 +8,7 @@ public class MinArray {
 
     public static void main(String[] args) {
         MinArray minArray = new MinArray();
-        System.out.println(minArray.findMin(new int[]{2,1}));
+        System.out.println(minArray.findMin(new int[]{2, 1}));
     }
 
     public int findMin(int[] nums) {

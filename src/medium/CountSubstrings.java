@@ -23,13 +23,13 @@ public class CountSubstrings {
 
     public int countSubstrings(String s) {
         for (int i = 0; i < s.length(); i++) {
-            search(s,i,i);
-            search(s,i,i+1);
+            search(s, i, i);
+            search(s, i, i + 1);
         }
         return count;
     }
 
-    private void search(String s,int left,int right){
+    private void search(String s, int left, int right) {
         while (left >= 0 && right < s.length()) {
             if (s.charAt(left) == s.charAt(right)) {
                 count++;

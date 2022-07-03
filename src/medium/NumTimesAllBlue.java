@@ -7,7 +7,7 @@ public class NumTimesAllBlue {
 
     public static void main(String[] args) {
         NumTimesAllBlue solution = new NumTimesAllBlue();
-        int[] arr = {2,1,4,3,6,5};
+        int[] arr = {2, 1, 4, 3, 6, 5};
         System.out.println(solution.numTimesAllBlue(arr));
     }
 

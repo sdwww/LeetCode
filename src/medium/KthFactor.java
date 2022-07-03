@@ -1,7 +1,5 @@
 package medium;
 
-import java.util.ArrayList;
-
 /**
  * 1492. n 的第 k 个因子
  */

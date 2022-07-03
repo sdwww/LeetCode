@@ -11,15 +11,15 @@ public class JudgeSquareSum {
     }
 
     public boolean judgeSquareSum(int c) {
-        int maxNum=(int)Math.sqrt(c);
-        if(maxNum*maxNum==c){
+        int maxNum = (int) Math.sqrt(c);
+        if (maxNum * maxNum == c) {
             return true;
         }
-        int maxNumHalf=(int)Math.sqrt(c/2);
+        int maxNumHalf = (int) Math.sqrt(c / 2);
 
-        for(int j=maxNum;j>=maxNumHalf;j--){
-            int k=(int)Math.sqrt(c-j*j);
-            if(j*j+k*k==c){
+        for (int j = maxNum; j >= maxNumHalf; j--) {
+            int k = (int) Math.sqrt(c - j * j);
+            if (j * j + k * k == c) {
                 return true;
             }
         }

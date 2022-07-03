@@ -6,7 +6,7 @@ package medium;
 public class CompressString {
 
     public static void main(String[] args) {
-        char[] chars = {'a','a','b','b','c','c','c'};
+        char[] chars = {'a', 'a', 'b', 'b', 'c', 'c', 'c'};
         CompressString solution = new CompressString();
         int compress = solution.compress(chars);
         System.out.println(compress);
@@ -27,7 +27,7 @@ public class CompressString {
             }
         }
         chars[result++] = current;
-        return fillCount(chars,count,result);
+        return fillCount(chars, count, result);
     }
 
     // 补全数字部分

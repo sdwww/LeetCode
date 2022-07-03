@@ -47,13 +47,13 @@ public class PushDominoes {
         }
         for (int i = 0; i < dominoes.length(); i++) {
             if (dominoes.charAt(i) != '.' || right[i] == left[i]) {
-                result[i]=dominoes.charAt(i);
+                result[i] = dominoes.charAt(i);
             }
             if (right[i] != 0 && (left[i] == 0 || left[i] > right[i])) {
-                result[i] ='R';
+                result[i] = 'R';
             }
             if (left[i] != 0 && (right[i] == 0 || right[i] > left[i])) {
-                result[i]='L';
+                result[i] = 'L';
             }
         }
         return String.valueOf(result);

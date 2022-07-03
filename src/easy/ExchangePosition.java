@@ -20,7 +20,7 @@ public class ExchangePosition {
             while (left < right && nums[left] % 2 == 1) {
                 left++;
             }
-            while (left < right &&nums[right] % 2 == 0) {
+            while (left < right && nums[right] % 2 == 0) {
                 right--;
             }
             int temp = nums[left];

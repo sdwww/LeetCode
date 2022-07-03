@@ -7,7 +7,7 @@ public class MatrixTranspose {
 
     public static void main(String[] args) {
         MatrixTranspose solution = new MatrixTranspose();
-        int[][] arr = {{1,2,3},{4,5,6}};
+        int[][] arr = {{1, 2, 3}, {4, 5, 6}};
         int[][] transpose = solution.transpose(arr);
         for (int i = 0; i < transpose.length; i++) {
             for (int j = 0; j < transpose[0].length; j++) {

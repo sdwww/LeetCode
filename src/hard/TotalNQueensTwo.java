@@ -19,10 +19,9 @@ public class TotalNQueensTwo {
     }
 
     /**
-     *
      * @param currentRowNum 当前行数
-     * @param n 总个数
-     * @param arr 维护的数组
+     * @param n             总个数
+     * @param arr           维护的数组
      */
     private void check(int currentRowNum, int n, int[] arr) {
         if (currentRowNum >= n) {
@@ -39,9 +38,10 @@ public class TotalNQueensTwo {
 
     /**
      * 判断某个位置是否可以放置棋子
+     *
      * @param currentRowNum 当前行数
-     * @param currentValue 当前值
-     * @param arr 维护的数组
+     * @param currentValue  当前值
+     * @param arr           维护的数组
      * @return 是否可行
      */
     private boolean judge(int currentRowNum, int currentValue, int[] arr) {

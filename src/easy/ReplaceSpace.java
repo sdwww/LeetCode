@@ -15,6 +15,6 @@ public class ReplaceSpace {
     }
 
     public String replaceSpace(String s) {
-        return Optional.ofNullable(s).map(str->str.replace(" ","%20")).orElse(null);
+        return Optional.ofNullable(s).map(str -> str.replace(" ", "%20")).orElse(null);
     }
 }

@@ -9,7 +9,7 @@ public class MaxProduct {
 
     public static void main(String[] args) {
         MaxProduct maxProduct = new MaxProduct();
-        int[] nums = new int[]{-2,2,3};
+        int[] nums = new int[]{-2, 2, 3};
         int i = maxProduct.maxProduct(nums);
         System.out.println(i);
     }

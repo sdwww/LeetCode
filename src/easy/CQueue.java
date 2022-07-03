@@ -1,7 +1,6 @@
 package easy;
 
 import java.util.LinkedList;
-import java.util.Stack;
 
 /**
  * 剑指 Offer 09. 用两个栈实现队列
@@ -20,11 +19,11 @@ public class CQueue {
     }
 
     public int deleteHead() {
-        if(stack1.isEmpty()){
-            if(stack0.isEmpty()){
+        if (stack1.isEmpty()) {
+            if (stack0.isEmpty()) {
                 return -1;
             }
-            while (!stack0.isEmpty()){
+            while (!stack0.isEmpty()) {
                 stack1.push(stack0.pop());
             }
         }

@@ -9,7 +9,7 @@ public class CanMakeArithmeticProgression {
 
     public static void main(String[] args) {
         CanMakeArithmeticProgression solution = new CanMakeArithmeticProgression();
-        int[] arr ={1,3,2,6,5};
+        int[] arr = {1, 3, 2, 6, 5};
         System.out.println(solution.canMakeArithmeticProgression(arr));
     }
 

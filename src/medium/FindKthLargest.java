@@ -33,7 +33,7 @@ public class FindKthLargest {
 
     // 快速排序，从大到小排序，时间复杂度O(n)
     public int findKthLargest(int[] nums, int k) {
-        quickSort(nums, 0, nums.length - 1, k-1);
+        quickSort(nums, 0, nums.length - 1, k - 1);
         return nums[k - 1];
     }
 

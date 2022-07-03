@@ -1,6 +1,5 @@
 package hard;
 
-import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -9,7 +8,7 @@ import java.util.LinkedList;
 public class LongestValidParentheses {
 
     public static void main(String[] args) {
-        LongestValidParentheses solution =new LongestValidParentheses();
+        LongestValidParentheses solution = new LongestValidParentheses();
         int i = solution.longestValidParentheses("()()()()");
         System.out.println(i);
     }

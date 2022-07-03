@@ -14,7 +14,7 @@ package easy;
 public class FindLengthOfLCIS {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2,2,2,2,2};
+        int[] nums = new int[]{2, 2, 2, 2, 2};
         FindLengthOfLCIS solution = new FindLengthOfLCIS();
         int lengthOfLCIS = solution.findLengthOfLCIS(nums);
         System.out.println(lengthOfLCIS);

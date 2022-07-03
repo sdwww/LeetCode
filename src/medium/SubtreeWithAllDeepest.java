@@ -38,10 +38,10 @@ public class SubtreeWithAllDeepest {
             return treeNode;
         }
         depth++;
-        if(leftDepth>rightDepth){
-            return search(treeNode.left,depth);
+        if (leftDepth > rightDepth) {
+            return search(treeNode.left, depth);
         }
-        return search(treeNode.right,depth);
+        return search(treeNode.right, depth);
 
 
     }

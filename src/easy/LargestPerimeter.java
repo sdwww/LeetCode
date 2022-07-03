@@ -9,7 +9,7 @@ public class LargestPerimeter {
 
     public static void main(String[] args) {
         LargestPerimeter largestPerimeter = new LargestPerimeter();
-        int[] array = {3,6,2,3};
+        int[] array = {3, 6, 2, 3};
 //        int[] array = {1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1};
         System.out.println(largestPerimeter.largestPerimeter(array));
     }

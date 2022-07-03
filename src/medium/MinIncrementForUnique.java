@@ -21,7 +21,7 @@ public class MinIncrementForUnique {
         Arrays.sort(A);
         for (int i = 1; i < A.length; i++) {
             if (A[i] <= A[i - 1]) {
-                int differnce = A[i-1]-A[i]+1;
+                int differnce = A[i - 1] - A[i] + 1;
                 count += differnce;
                 A[i] += differnce;
             }

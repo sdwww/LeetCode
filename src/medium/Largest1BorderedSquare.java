@@ -7,7 +7,7 @@ public class Largest1BorderedSquare {
     public static void main(String[] args) {
         Largest1BorderedSquare solution = new Largest1BorderedSquare();
 //        int[][] board = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
-        int[][] board = {{0, 0, 0,1}};
+        int[][] board = {{0, 0, 0, 1}};
         System.out.println(solution.largest1BorderedSquare(board));
     }
 

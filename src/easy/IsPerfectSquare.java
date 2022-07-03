@@ -15,7 +15,7 @@ public class IsPerfectSquare {
             if (i * i == num) {
                 return true;
             }
-            if (i*i<0||i * i > num) {
+            if (i * i < 0 || i * i > num) {
                 return false;
             }
         }

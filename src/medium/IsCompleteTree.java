@@ -21,7 +21,7 @@ public class IsCompleteTree {
         root.right = node2;
         node1.left = node3;
         node1.right = node4;
-        node2.right =node5;
+        node2.right = node5;
 
         IsCompleteTree isCompleteTree = new IsCompleteTree();
         boolean completeTree = isCompleteTree.isCompleteTree(root);

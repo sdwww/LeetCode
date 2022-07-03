@@ -6,11 +6,7 @@
  */
 package medium;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * 692. 前K个高频单词
@@ -43,7 +39,7 @@ public class TopKFrequent {
         List<String> result = new ArrayList<>(k);
         // 3.转换到结果中
         while (!queue.isEmpty()) {
-            result.add(0,queue.poll().string);
+            result.add(0, queue.poll().string);
         }
         return result;
     }

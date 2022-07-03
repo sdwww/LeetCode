@@ -12,7 +12,7 @@ public class PermuteUnique {
 
     public static void main(String[] args) {
         PermuteUnique solution = new PermuteUnique();
-        int[] arr = {1, 1,1, 2};
+        int[] arr = {1, 1, 1, 2};
         System.out.println(solution.permuteUnique(arr));
     }
 

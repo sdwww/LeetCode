@@ -1,7 +1,6 @@
 package easy;
 
 import base.TreeNode;
-import medium.ZigzagLevelOrder;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

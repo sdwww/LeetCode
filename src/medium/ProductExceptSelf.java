@@ -11,7 +11,7 @@ public class ProductExceptSelf {
     public static void main(String[] args) {
         ProductExceptSelf solution = new ProductExceptSelf();
         int[] arr = {1, 2, 3};
-        System.out.println((double) 2/3);
+        System.out.println((double) 2 / 3);
         Arrays.stream(solution.productExceptSelf(arr)).forEach(System.out::print);
     }
 
